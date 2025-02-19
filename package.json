@@ -1,0 +1,123 @@
+{
+  "name": "typescript-template",
+  "version": "0.0.1",
+  "author": "Sagar Variya",
+  "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "packageManager": "pnpm@10.2.1",
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sagar-v4/typescript-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Sagar-v4/typescript-template/issues"
+  },
+  "homepage": "https://github.com/Sagar-v4/typescript-template#readme",
+  "scripts": {
+    "prepare": "husky",
+    "lint": "eslin .",
+    "format": "prettier --write .",
+    "release": "release-it"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.7.1",
+    "@commitlint/config-conventional": "^19.7.1",
+    "@eslint/js": "^9.20.0",
+    "@release-it/conventional-changelog": "^10.0.0",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^9.20.1",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "globals": "^15.15.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
+    "prettier": "^3.5.1",
+    "release-it": "^18.1.2",
+    "typescript-eslint": "^8.24.1"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix"
+    ],
+    "**/*": [
+      "prettier --write --ignore-unknown"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "release-it": {
+    "$schema": "https://unpkg.com/release-it@18/schema/release-it.json",
+    "git": {
+      "commitMessage": "chore: release v${version}"
+    },
+    "github": {
+      "release": true
+    },
+    "npm": {
+      "publish": false
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "infile": "CHANGELOG.md",
+        "preset": {
+          "name": "conventionalcommits",
+          "types": [
+            {
+              "type": "feat",
+              "section": "Features"
+            },
+            {
+              "type": "fix",
+              "section": "Bug Fixes"
+            },
+            {
+              "type": "refactor",
+              "section": "Refactors"
+            },
+            {
+              "type": "docs",
+              "section": "Documentation"
+            },
+            {
+              "type": "test",
+              "section": "Tests"
+            },
+            {
+              "type": "chore",
+              "section": "Chores"
+            },
+            {
+              "type": "ci",
+              "section": "Continuous Integration"
+            },
+            {
+              "type": "revert",
+              "section": "Reverts"
+            },
+            {
+              "type": "style",
+              "section": "Styles"
+            },
+            {
+              "type": "perf",
+              "section": "Performance Improvements"
+            },
+            {
+              "type": "build",
+              "section": "Build System"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
